@@ -4,13 +4,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.iftm.apispringmongo.models.Developer;
 import com.iftm.apispringmongo.models.dto.DeveloperDTO;
@@ -31,7 +25,7 @@ public class DeveloperController {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<DeveloperDTO> findById(@PathVariable("id") ObjectId id) {
         return service.findById(id);
     }
@@ -41,8 +35,13 @@ public class DeveloperController {
         return service.save(developer);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/id/{id}")
     public ResponseEntity<?> deleteById (@PathVariable("id") ObjectId id) {
         return service.deleteById(id);
+    }
+
+    @PutMapping
+    public ResponseEntity<DeveloperDTO> updateById(@RequestBody DeveloperDTO developer) {
+        return service.update(developer);
     }
 }
