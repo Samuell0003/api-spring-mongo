@@ -1,12 +1,13 @@
-package com.iftm.apispringmongo.models.dto;
+package com.iftm.apispringmongo.models;
 
 public class Address {
-    private String stree;
+    private String street;
     private int number;
     private String city;
     private String country;
 
-    public Address(int number, String city, String country) {
+    public Address(String street,int number, String city, String country) {
+        this.street = street;
         this.number = number;
         this.city = city;
         this.country = country;
@@ -14,12 +15,12 @@ public class Address {
 
     public Address() { }
 
-    public String getStree() {
-        return stree;
+    public String getStret() {
+        return street;
     }
 
-    public void setStree(String stree) {
-        this.stree = stree;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public int getNumber() {

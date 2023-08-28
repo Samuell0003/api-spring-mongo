@@ -1,4 +1,4 @@
-package com.iftm.apispringmongo.models.dto;
+package com.iftm.apispringmongo.models;
 
 import java.io.Serializable;
 
@@ -66,11 +66,9 @@ public class Developer implements Serializable{
         return level;
     }
 
-
     public void setLevel(String level) {
         this.level = level;
     }
-
 
     public String getSpecialization() {
         return specialization;
